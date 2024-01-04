@@ -8,9 +8,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        {/* 여기다가 랜딩페이지 넣을거임 */}
+        {/* 랜딩페이지 */}
         <Route path="/" element={<Home></Home>} />
-        {/* 대화페이지*/}
+        {/* 대화페이지 */}
         <Route path="/talkabout" element={<Talkabout></Talkabout>}></Route>
         {/* 여기다가 대화내용 db 아이디 넣을거임 */}
         {/* <Route path="/about/:id" element={<About></About>}>
@@ -23,14 +23,6 @@ function App() {
       </Routes>
 
       {/* 대화페이지/대화목록/뒤로가기.. 등등의 버튼 */}
-
-      <button
-        onClick={() => {
-          navigate("/talkabout");
-        }}
-      >
-        대화페이지로 이동하는 임시버튼
-      </button>
     </div>
   );
 }

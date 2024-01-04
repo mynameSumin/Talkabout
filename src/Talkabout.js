@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
 
 export default function Talkabout() {
   let navigate = useNavigate();
