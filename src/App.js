@@ -1,7 +1,8 @@
 import "./App.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Talkabout from "./Talkabout";
-import Home from "./Home";
+import Talkabout from "./pages/Talkabout";
+import Home from "./pages/Home";
+import KakaoLogin from "./pages/KakaoLogin";
 
 function App() {
   let navigate = useNavigate();
@@ -10,8 +11,10 @@ function App() {
       <Routes>
         {/* 랜딩페이지 */}
         <Route path="/" element={<Home></Home>} />
+        {/*로그인 페이지*/}
+        <Route path="/kakaoLogin" element={<KakaoLogin />} />
         {/* 대화페이지 */}
-        <Route path="/talkabout" element={<Talkabout></Talkabout>}></Route>
+        <Route path="/talkabout" element={<Talkabout />} />
         {/* 여기다가 대화내용 db 아이디 넣을거임 */}
         {/* <Route path="/about/:id" element={<About></About>}>
           <Route path="1" element={<div>1</div>} />
