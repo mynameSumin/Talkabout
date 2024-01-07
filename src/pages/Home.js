@@ -1,9 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import ment from "./ment.png";
-import title from "./title.png";
-import logo from "./logo.png";
+import ment from "../assets/ment.png";
+import title from "../assets/title.png";
+import logo from "../assets/logo.png";
 
 export default function Home() {
   let [nickname, setNickname] = useState("");
@@ -40,7 +40,8 @@ export default function Home() {
           ></Name>
           <Button type="submit">Submit</Button>
         </form>
-
+        <div>소셜 로그인</div>
+        <button>카카오 로그인</button>
         {/* <input
         onChange={(e) => {
           setInput(e.target.value);
