@@ -7,7 +7,13 @@ import logo from "../assets/logo.png";
 
 export default function Home() {
   let [nickname, setNickname] = useState("");
+  const restAPIKeys = process.env.REACT_APP_KAKAO_REST_API_KEY;
+  const redirectURI = process.env.REACT_APP_KAKAO_REDIREDCT_URI;
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${restAPIKeys}&redirect_uri=${redirectURI}&response_type=code`;
 
+  const kakaoLogin = () => {
+    window.location.href = KAKAO_AUTH_URL;
+  };
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -41,7 +47,13 @@ export default function Home() {
           <Button type="submit">Submit</Button>
         </form>
         <div>소셜 로그인</div>
-        <button>카카오 로그인</button>
+        <button
+          onClick={() => {
+            kakaoLogin();
+          }}
+        >
+          카카오 로그인
+        </button>
         {/* <input
         onChange={(e) => {
           setInput(e.target.value);
