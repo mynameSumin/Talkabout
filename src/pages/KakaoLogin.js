@@ -20,9 +20,7 @@ export default function KakaoLogin() {
           headers: { "Content-type": "application/x-www-form-urlencoded" },
         })
         .then((res) => {
-          console.log(res);
           const accessToken = res.data.access_token;
-          console.log(accessToken);
           axios
             .get(`https://kapi.kakao.com/v2/user/me`, {
               headers: {
@@ -30,7 +28,6 @@ export default function KakaoLogin() {
               },
             })
             .then((res) => {
-              console.log(res);
               navigate("/talkabout");
             });
         });
