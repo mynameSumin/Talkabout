@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ment from "../assets/ment.png";
 import title from "../assets/title.png";
 import logo from "../assets/logo.png";
+import kakao from "../assets/kakao_login_medium.png";
 
 export default function Home() {
   let [nickname, setNickname] = useState("");
@@ -35,25 +36,25 @@ export default function Home() {
       <Main>
         <Logo src={logo} />
         <Title src={title} />
-        <Ment>당신의 이야기를 듣고 싶어요</Ment>
+        <Ment src={ment} />
         <form onSubmit={handleFormSubmit}>
           <Name
             type="text"
             id="nickname"
             value={nickname}
             onChange={(e) => setNickname(e.target.value)}
-            placeholder="Your NickName?"
+            placeholder="이름을 알려주세요!"
           ></Name>
-          <Button type="submit">Submit</Button>
+          <Button type="submit">submit</Button>
         </form>
-        <div>소셜 로그인</div>
-        <button
-          onClick={() => {
-            kakaoLogin();
-          }}
-        >
-          카카오 로그인
-        </button>
+        <div>
+          <Kakao
+            src={kakao}
+            onClick={() => {
+              kakaoLogin();
+            }}
+          ></Kakao>
+        </div>
         {/* <input
         onChange={(e) => {
           setInput(e.target.value);
@@ -66,7 +67,7 @@ export default function Home() {
 
 const Main = styled.div`
   width: 360px;
-  height: 598px;
+  height: 100vh;
   margin: auto;
   margin-top: 0;
   background: linear-gradient(rgba(74, 39, 124, 1), rgba(132, 91, 167, 1));
@@ -76,11 +77,11 @@ const Hole = styled.div`
   background: black;
 `;
 
-const Ment = styled.div`
-  font-size: 15px;
-  font-weight: 800;
-  color: white;
-  margin: 0;
+const Ment = styled.img`
+  width: 230px;
+  height: 50px;
+  display: block;
+  margin: auto;
 `;
 const Logo = styled.img`
   width: 260px;
@@ -89,22 +90,41 @@ const Logo = styled.img`
 `;
 const Title = styled.img`
   width: 200px;
-  height: 120px;
+  height: 85px;
   margin: 0;
+  margin-top: 10px;
+`;
+
+const Kakao = styled.img`
+  width: 60px;
+  height: 30px;
+  margin-top: 15px;
+  cursor: pointer;
 `;
 
 const Button = styled.button`
   background: white;
+  border: none;
   height: 20px;
-  width: 60px;
+  width: 200px;
   text-align: center;
   left: 0;
   right: 0;
-  margin: 0 auto;
+  margin: 10px auto;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 5px;
 `;
 
 const Name = styled.input`
-  margin-top: 30px;
+  margin: auto;
+  margin-top: 25px;
+  background-color: rgba(74, 39, 124, 1);
+  &::placeholder {
+    text-align: center;
+  }
+  border: none;
+  border-radius: 10px;
+  height: 40px;
+  width: 200px;
+  display: block;
 `;
