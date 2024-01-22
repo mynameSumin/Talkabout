@@ -24,16 +24,23 @@ export default function KakaoLogin() {
           redirect_uri: redirect_uri,
         })
         .then((res) => {
-          console.log(res.data);
+          setUser(res.data.nickname);
+          localStorage.setItem("user", res.data.nickname);
+          console.log(localStorage.getItem("user"));
+          navigate("/talkabout");
         });
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    getAccessToken();
-  }, [KAKAO_CODE]);
+  useEffect(
+    () => {
+      getAccessToken();
+    },
+    [KAKAO_CODE],
+    [user]
+  );
 
-  return <div>{user}hi</div>;
+  return <div>Loading</div>;
 }

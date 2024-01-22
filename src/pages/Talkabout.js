@@ -1,14 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Talkabout() {
   let navigate = useNavigate();
   let conversation = useSelector((state) => {
     return state.conversation;
   });
-  console.log(conversation);
+
+  useEffect(() => {
+    console.log(localStorage.getItem("user"));
+  });
 
   return (
     <div>
